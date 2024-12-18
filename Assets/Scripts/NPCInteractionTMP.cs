@@ -40,6 +40,7 @@
 
 using UnityEngine;
 using TMPro; // For TextMeshPro
+using Cinemachine;
 
 public class NPCInteractionTMP : MonoBehaviour
 {
@@ -50,11 +51,14 @@ public class NPCInteractionTMP : MonoBehaviour
     public TextMeshProUGUI dialogueText; // TextMeshPro component for dialogue
     public string dialogueMessage = "Hello! How can I help you?";
 
+    public CinemachineVirtualCamera camNPC;
+    public CinemachineVirtualCamera camPlayer;
+
     void Start()
     {
         // Ensure the dialogue box is hidden at the start of the game
         dialogueBox.SetActive(false);
-        //Debug.Log("Dialogue box hidden at start.");
+        // Debug.Log("Dialogue box hidden at start.");
     }
 
     void Update()
@@ -68,13 +72,15 @@ public class NPCInteractionTMP : MonoBehaviour
         // Check if the player is within range
         if (distance <= interactionRange)
         {
-            //Debug.Log("Player is within range of the Interaction UI.");
+            // Debug.Log("Player is within range of the Interaction UI.");
             ShowDialogue();
+            SwitchToNPCPov();
         }
         else
         {
-            //Debug.Log("Player is out of range.");
+            // Debug.Log("Player is out of range.");
             HideDialogue();
+            CloseNPCPov();
         }
     }
 
@@ -95,5 +101,15 @@ public class NPCInteractionTMP : MonoBehaviour
             dialogueBox.SetActive(false); // Hide the dialogue box
             //Debug.Log("Dialogue box hidden.");
         }
+    }
+
+    void SwitchToNPCPov()
+    {
+        CameraManager.SwitchCamera(camNPC);
+    }
+
+    void CloseNPCPov()
+    {
+        CameraManager.SwitchCamera(camPlayer);
     }
 }
