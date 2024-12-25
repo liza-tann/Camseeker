@@ -1,9 +1,9 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/Scripts/Camera/MoveCamera.cs.meta
-guid: 8ae082f41e7b2644a849913d56b246af
-========
+<<<<<<<< HEAD:Assets/Scripts/Camera/FirstPOV.cs.meta
 guid: 2d98962c9a544d749a6db5300aee6461
->>>>>>>> main:Assets/Scripts/Camera/FirstPOV.cs.meta
+========
+guid: 578d597caea34404c847ae562347a4ee
+>>>>>>>> main:Assets/Scripts/AnswerScript.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
