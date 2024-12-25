@@ -5,10 +5,11 @@ namespace FirstPersonMobileTools.DynamicFirstPerson
 
     [RequireComponent(typeof(MovementController))]
     [RequireComponent(typeof(CameraLook))]
-    public class nonMobileInput : MonoBehaviour {
+    public class nonMobileInput : MonoBehaviour
+    {
 
-        [HideInInspector] public float Sensitivity_X { private get { return _Sensitivity.x; } set { _Sensitivity.x = value * 50 / 3; }}
-        [HideInInspector] public float Sensitivity_Y { private get { return _Sensitivity.y; } set { _Sensitivity.y = value * 50 / 3; }}
+        [HideInInspector] public float Sensitivity_X { private get { return _Sensitivity.x; } set { _Sensitivity.x = value * 50 / 3; } }
+        [HideInInspector] public float Sensitivity_Y { private get { return _Sensitivity.y; } set { _Sensitivity.y = value * 50 / 3; } }
 
         [SerializeField] private KeyCode JumpInput;
         [SerializeField] private KeyCode SprintInput;
@@ -19,25 +20,27 @@ namespace FirstPersonMobileTools.DynamicFirstPerson
         private MovementController movementController;
         private CameraLook cameraLook;
         private Camera _camera;
-        
+
         Quaternion y;
         Quaternion x;
         Vector2 delta = Vector2.zero;
-        
-        private void Start() {
-            
+
+        private void Start()
+        {
+
             if (Camera.main != null)
                 _camera = Camera.main;
             else Debug.LogError($"Can't find any main camera in scene!\n(Set your camera tag as MainCamera)", this);
 
             movementController = GetComponent<MovementController>();
             cameraLook = GetComponent<CameraLook>();
-            
+
         }
 
-        private void Update() {
+        private void Update()
+        {
 
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
 
             cameraLook.delta += new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y")) * _Sensitivity;
 
@@ -58,7 +61,7 @@ namespace FirstPersonMobileTools.DynamicFirstPerson
             if (Input.GetKeyUp(CrouchInput))
                 movementController.Input_Crouch = false;
 
-        #endif
+#endif
 
         }
 

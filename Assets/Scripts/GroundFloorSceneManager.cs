@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class GroundFloorSceneManager : MonoBehaviour
 {
-    public GameObject[] characterPrefabs;  // Array of all character prefabs
-    private GameObject activeCharacter;  // The currently loaded character
+    public GameObject[] characterPrefabs; // Array of character prefabs
+    private GameObject activeCharacter;   // Currently loaded character
 
     void Start()
     {
-        int selectedCharacterIndex = PlayerPrefs.GetInt("SelectedCharacterIndex", 0); // Default to 0 if not found
-        Debug.Log("Currently loaded character index: " + selectedCharacterIndex);
+        // Get the selected character index from PlayerPrefs
+        int selectedCharacterIndex = PlayerPrefs.GetInt("SelectedCharacterIndex", 0);
 
         if (characterPrefabs == null || characterPrefabs.Length == 0)
         {
@@ -22,9 +22,13 @@ public class GroundFloorSceneManager : MonoBehaviour
             return;
         }
 
+        // Instantiate the selected character at the default position
         activeCharacter = Instantiate(characterPrefabs[selectedCharacterIndex]);
-        activeCharacter.transform.position = new Vector3(50.3f, -0.1188011f, 27.4f);
+        activeCharacter.transform.position = new Vector3(48.23f, 0.19f, 27.33f);
         activeCharacter.transform.rotation = Quaternion.Euler(0, 88, 0);
-        activeCharacter.transform.localScale = new Vector3(3, 3, 3);
+        activeCharacter.transform.localScale = new Vector3(1, 1, 1);
+
+        // Add the CharacterMover script to enable movement
+        activeCharacter.AddComponent<CharacterMover>();
     }
 }

@@ -5,8 +5,9 @@ namespace FirstPersonMobileTools.Utility
 {
 
     [RequireComponent(typeof(MovementController))]
-    public class FovKick : MonoBehaviour {
-            
+    public class FovKick : MonoBehaviour
+    {
+
         public float m_Ammount = 10.0f;
         public float m_Delay = 1.0f;
 
@@ -35,14 +36,14 @@ namespace FirstPersonMobileTools.Utility
             m_CurrentFov = m_OriginalFov;
         }
 
-        private void FixedUpdate() 
+        private void FixedUpdate()
         {
 
             if (m_Sprint && !m_Crouch && m_Camera.fieldOfView != m_OriginalFov + m_Ammount)
             {
                 AdjustFov(Time.deltaTime);
             }
-            
+
             if ((!m_Sprint || m_Crouch) && m_Camera.fieldOfView != m_OriginalFov)
             {
                 AdjustFov(-Time.deltaTime);
@@ -51,9 +52,9 @@ namespace FirstPersonMobileTools.Utility
         }
 
         public void AdjustFov(float time)
-        {   
+        {
 
-            m_CurrentFov += (m_Ammount / m_Delay ) * time;
+            m_CurrentFov += (m_Ammount / m_Delay) * time;
             m_CurrentFov = Mathf.Clamp(m_CurrentFov, m_OriginalFov, m_OriginalFov + m_Ammount);
             m_Camera.fieldOfView = m_CurrentFov;
 
