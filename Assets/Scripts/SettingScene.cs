@@ -6,7 +6,7 @@ public class SettingScene : MonoBehaviour
     // This method will be triggered when the "Start" button is clicked
     public void OnPlayButtonClicked()
     {
-        SceneManager.LoadScene("groundFloor"); // Replace with your StartGame scene name
+        SceneManager.LoadScene("Scene2"); // Replace with your StartGame scene name
     }
 
     public void OnBackToMainMenuButtonClicked()
