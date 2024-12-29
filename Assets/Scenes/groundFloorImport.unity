@@ -39960,12 +39960,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c154584d0e26d0429bc12f5577f9c40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeOverlay: {fileID: 1720093896}
-  transitionDuration: 1
-  currentScene: 
-  targetScene: 
-  GlobalScenes:
-  - groundFloor
+  playerPosition: {x: 0, y: 0, z: 0}
+  score: 0
 --- !u!4 &1625289686
 Transform:
   m_ObjectHideFlags: 0
@@ -64483,6 +64479,7 @@ MonoBehaviour:
   m_Acceleration: 10
   m_WalkSpeed: 3
   m_Animator: {fileID: 0}
+  interactionRange: 3
 --- !u!114 &5866666021899326271
 MonoBehaviour:
   m_ObjectHideFlags: 0
