@@ -240,7 +240,7 @@ public class QuizManager : MonoBehaviour
         {
             if (option != null)
             {
-                option.GetComponent<Image>().color = new Color(0.0f, 0.5f, 0.0f, 1.0f); // Dark green
+                option.GetComponent<Image>().color = Color.white;
             }
         }
     }
