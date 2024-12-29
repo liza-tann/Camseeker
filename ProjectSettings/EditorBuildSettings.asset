@@ -12,7 +12,11 @@ EditorBuildSettings:
     path: Assets/Scenes/2D Scenes/AboutUs.unity
     guid: 41b3ec678c0cc43a5b236412b46dbfb2
   - enabled: 1
+<<<<<<< Updated upstream
     path: Assets/Scenes/2D Scenes/SelectCharacter.unity
+=======
+    path: Assets/Scenes/2D Scenes/Setting.unity
+>>>>>>> Stashed changes
     guid: e89497dc5182943dd991f87e91538775
   - enabled: 1
     path: Assets/Scenes/SchoolScene/groundFloor.unity

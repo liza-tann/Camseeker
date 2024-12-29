@@ -1,240 +1,150 @@
-using System;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-namespace FirstPersonMobileTools
+public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler
 {
-        
-    [RequireComponent(typeof(Image))]
-    public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler {
+    public float Horizontal { get { return (snapX) ? SnapFloat(input.x, AxisOptions.Horizontal) : input.x; } }
+    public float Vertical { get { return (snapY) ? SnapFloat(input.y, AxisOptions.Vertical) : input.y; } }
+    public Vector2 Direction { get { return new Vector2(Horizontal, Vertical); } }
 
-        public enum JoystickMode {
-            Fixed,
-            FixedFloating,
-            Float,
-            Dynamic
-        }
-        
-        public JoystickMode m_JoystickMode;
-        [SerializeField] private RectTransform m_HandleRectTransform;
-        [SerializeField] private RectTransform m_HandleBaseRectTransform;
-        [SerializeField] private RectTransform m_JoystickTouchArea;
-        public RectTransform TestRect;
-
-        private delegate void JoystickInputDelegate(out Vector2 Position, PointerEventData EventData);
-        private JoystickInputDelegate m_JoystickInputDelegate;
-        private Image m_JoystickTouchAreaImage;
-        private Vector2 m_JoystickTouchAreaMinPosition;
-        private Vector2 m_JoystickTouchAreaMaxPosition;
-        private Vector2 m_OriginalPosition;
-        private Vector2 m_FixedFloatPivot;
-        private float m_ScreenHeight = Screen.height;
-        private bool m_PointerIsInJoystickArea;
-
-        Canvas m_Canvas;
-
-        [HideInInspector] public float Horizontal { get; private set; } 
-        [HideInInspector] public float Vertical { get; private set; }
-        [HideInInspector] public Vector2 InputLocalPosition;
-
-        private void Start()
-        {
-
-            m_Canvas = GetComponentInParent<Canvas>();
-            if (m_Canvas == null)
-                Debug.LogError($"Joystick is not in the canvas!", this); 
-
-            m_JoystickTouchAreaImage = m_JoystickTouchArea.GetComponent<Image>();
-            m_OriginalPosition = m_HandleBaseRectTransform.anchoredPosition;
-
-            Vector2 AnchorCenter = Vector2.one / 2;
-            m_HandleRectTransform.pivot = AnchorCenter;
-            m_HandleRectTransform.anchorMax = AnchorCenter;
-            m_HandleRectTransform.anchorMin = AnchorCenter;
-            m_HandleRectTransform.anchoredPosition = Vector2.zero;
-
-            m_OriginalPosition = m_HandleBaseRectTransform.anchoredPosition;
-
-            m_JoystickTouchAreaMinPosition = 
-                new Vector2(m_JoystickTouchArea.anchoredPosition.x, m_JoystickTouchArea.anchoredPosition.y) * m_Canvas.scaleFactor;
-            m_JoystickTouchAreaMaxPosition = 
-                new Vector2(m_JoystickTouchArea.anchoredPosition.x + m_JoystickTouchArea.rect.size.x,
-                            m_JoystickTouchArea.anchoredPosition.y + m_JoystickTouchArea.rect.size.y) * m_Canvas.scaleFactor;;
-
-            OnPointerUp(null);
-
-            OnChangeSettings();
-        }
-
-        public void OnPointerDown(PointerEventData EventData) 
-        {
-
-            m_PointerIsInJoystickArea = true;
-            if (m_JoystickMode != JoystickMode.Fixed)
-            {  
-                if (m_JoystickMode == JoystickMode.FixedFloating)
-                {
-                    m_FixedFloatPivot = EventData.position;
-                }
-                else 
-                {
-                    m_HandleBaseRectTransform.gameObject.SetActive(true);
-                    m_HandleBaseRectTransform.anchoredPosition = EventData.position / m_Canvas.scaleFactor;
-                }
-            }
-            
-            OnDrag(EventData);
-
-        }
-
-        public void OnPointerUp(PointerEventData EventData)
-        {
-
-            if (m_JoystickMode != JoystickMode.Fixed && m_JoystickMode != JoystickMode.FixedFloating) 
-            {
-                m_HandleBaseRectTransform.gameObject.SetActive(false);
-                m_HandleBaseRectTransform.anchoredPosition = m_OriginalPosition;
-            }
-            m_HandleRectTransform.anchoredPosition = Vector2.zero;
-
-            Horizontal = 0f;
-            Vertical = 0f;
-
-        }
-
-        public void OnDrag(PointerEventData EventData)
-        {
-            if (m_JoystickMode != JoystickMode.Fixed && m_PointerIsInJoystickArea)
-            {
-                m_PointerIsInJoystickArea = EventData.position.x >= m_JoystickTouchAreaMinPosition.x && 
-                                            EventData.position.x <= m_JoystickTouchAreaMaxPosition.x &&
-                                            m_ScreenHeight - EventData.position.y >= m_JoystickTouchAreaMinPosition.y &&
-                                            m_ScreenHeight - EventData.position.y <= m_JoystickTouchAreaMaxPosition.y;
-            }
-
-            if (!m_PointerIsInJoystickArea)
-            {
-                OnPointerUp(EventData);
-                return;
-            }
-
-            m_JoystickInputDelegate(out InputLocalPosition, EventData);
-
-            m_HandleRectTransform.anchoredPosition = InputLocalPosition;
-            
-            Horizontal = (float)Math.Round(InputLocalPosition.x / (m_HandleBaseRectTransform.sizeDelta.x / 2f), 3);
-            Vertical = (float)Math.Round(InputLocalPosition.y / (m_HandleBaseRectTransform.sizeDelta.y / 2f), 3);
-
-        }
-
-        public void OnChangeSettings()
-        {        
-            
-            switch (m_JoystickMode)
-            {
-                case JoystickMode.Fixed:
-                    JoystickFixedMode();
-                    break;
-
-                case JoystickMode.FixedFloating:
-                    JoystickFixedFloatingMode();
-                    break;
-
-                case JoystickMode.Float:
-                    JoystickFloatMode();
-                    break;
-
-                case JoystickMode.Dynamic:
-                    JoystickDynamicMode();
-                    break;
-            }
-
-        }    
-
-        private void JoystickFixedMode()
-        {
-            m_HandleBaseRectTransform.gameObject.SetActive(true);
-            if (m_OriginalPosition != Vector2.zero) m_HandleBaseRectTransform.anchoredPosition = m_OriginalPosition;
-            if (m_JoystickTouchAreaImage != null) m_JoystickTouchAreaImage.enabled = false;
-
-            m_JoystickInputDelegate = (out Vector2 InputLocalPosition, PointerEventData EventData) => {
-                Vector2 HandleBasePositionInScreen = m_HandleBaseRectTransform.anchoredPosition * m_Canvas.scaleFactor; 
-                InputLocalPosition = (EventData.position - HandleBasePositionInScreen) / m_Canvas.scaleFactor; 
-                
-                if (InputLocalPosition.magnitude > m_HandleBaseRectTransform.sizeDelta.x / 2f)
-                    InputLocalPosition = InputLocalPosition.normalized * (m_HandleBaseRectTransform.sizeDelta / 2f);
-            };
-        }
-
-        private void JoystickFixedFloatingMode()
-        {
-            m_HandleBaseRectTransform.gameObject.SetActive(true);
-            if (m_OriginalPosition != Vector2.zero) m_HandleBaseRectTransform.anchoredPosition = m_OriginalPosition;
-            if (m_JoystickTouchAreaImage != null) m_JoystickTouchAreaImage.enabled = true;
-
-            m_JoystickInputDelegate = (out Vector2 InputLocalPosition, PointerEventData EventData) => {
-                Vector2 HandleBasePositionInScreen = m_HandleBaseRectTransform.anchoredPosition * m_Canvas.scaleFactor; 
-                InputLocalPosition = (EventData.position - m_FixedFloatPivot) / m_Canvas.scaleFactor;
-                
-                if (InputLocalPosition.magnitude > m_HandleBaseRectTransform.sizeDelta.x / 2f)
-                    InputLocalPosition = InputLocalPosition.normalized * (m_HandleBaseRectTransform.sizeDelta / 2f);
-            };
-        }
-
-        private void JoystickFloatMode()
-        {
-            m_HandleBaseRectTransform.gameObject.SetActive(false);
-            if (m_JoystickTouchAreaImage != null) m_JoystickTouchAreaImage.enabled = true;
-
-            m_JoystickInputDelegate = (out Vector2 InputLocalPosition, PointerEventData EventData) => {
-                Vector2 HandleBasePositionInScreen = m_HandleBaseRectTransform.anchoredPosition * m_Canvas.scaleFactor; 
-                InputLocalPosition = (EventData.position - HandleBasePositionInScreen) / m_Canvas.scaleFactor;  
-                
-                if (InputLocalPosition.magnitude > m_HandleBaseRectTransform.sizeDelta.x / 2f)
-                    InputLocalPosition = InputLocalPosition.normalized * (m_HandleBaseRectTransform.sizeDelta / 2f);
-            };
-        }
-
-        private void JoystickDynamicMode()
-        {
-            m_HandleBaseRectTransform.gameObject.SetActive(false);
-            if (m_JoystickTouchAreaImage != null) m_JoystickTouchAreaImage.enabled = true;
-
-            m_JoystickInputDelegate = (out Vector2 InputLocalPosition, PointerEventData EventData) => {
-                Vector2 HandleBasePositionInScreen = m_HandleBaseRectTransform.anchoredPosition * m_Canvas.scaleFactor; 
-                InputLocalPosition = (EventData.position - HandleBasePositionInScreen) / m_Canvas.scaleFactor; 
-                
-                if (InputLocalPosition.magnitude > m_HandleBaseRectTransform.sizeDelta.x / 2f)
-                {
-                    m_HandleBaseRectTransform.anchoredPosition += 
-                        InputLocalPosition - (InputLocalPosition.normalized * m_HandleBaseRectTransform.sizeDelta / 2);
-
-                    InputLocalPosition = InputLocalPosition.normalized * (m_HandleBaseRectTransform.sizeDelta / 2f);
-                }
-            };
-        }
-
-        // Accessible function through setting to change joystick mode
-        public void SetMode(int value)
-        {
-            switch (value)
-            {
-                case 0: 
-                    m_JoystickMode = JoystickMode.Fixed;
-                    break;
-                case 1: 
-                    m_JoystickMode = JoystickMode.FixedFloating;
-                    break;
-                case 2: 
-                    m_JoystickMode = JoystickMode.Float;
-                    break;
-                case 3: 
-                    m_JoystickMode = JoystickMode.Dynamic;
-                    break;
-            }
-        }
-
+    public float HandleRange
+    {
+        get { return handleRange; }
+        set { handleRange = Mathf.Abs(value); }
     }
 
+    public float DeadZone
+    {
+        get { return deadZone; }
+        set { deadZone = Mathf.Abs(value); }
+    }
+
+    public AxisOptions AxisOptions { get { return AxisOptions; } set { axisOptions = value; } }
+    public bool SnapX { get { return snapX; } set { snapX = value; } }
+    public bool SnapY { get { return snapY; } set { snapY = value; } }
+
+    [SerializeField] private float handleRange = 1;
+    [SerializeField] private float deadZone = 0;
+    [SerializeField] private AxisOptions axisOptions = AxisOptions.Both;
+    [SerializeField] private bool snapX = false;
+    [SerializeField] private bool snapY = false;
+
+    [SerializeField] protected RectTransform background = null;
+    [SerializeField] private RectTransform handle = null;
+    private RectTransform baseRect = null;
+
+    private Canvas canvas;
+    private Camera cam;
+
+    private Vector2 input = Vector2.zero;
+
+    protected virtual void Start()
+    {
+        HandleRange = handleRange;
+        DeadZone = deadZone;
+        baseRect = GetComponent<RectTransform>();
+        canvas = GetComponentInParent<Canvas>();
+        if (canvas == null)
+            Debug.LogError("The Joystick is not placed inside a canvas");
+
+        Vector2 center = new Vector2(0.5f, 0.5f);
+        background.pivot = center;
+        handle.anchorMin = center;
+        handle.anchorMax = center;
+        handle.pivot = center;
+        handle.anchoredPosition = Vector2.zero;
+    }
+
+    public virtual void OnPointerDown(PointerEventData eventData)
+    {
+        OnDrag(eventData);
+    }
+
+    public void OnDrag(PointerEventData eventData)
+    {
+        cam = null;
+        if (canvas.renderMode == RenderMode.ScreenSpaceCamera)
+            cam = canvas.worldCamera;
+
+        Vector2 position = RectTransformUtility.WorldToScreenPoint(cam, background.position);
+        Vector2 radius = background.sizeDelta / 2;
+        input = (eventData.position - position) / (radius * canvas.scaleFactor);
+        FormatInput();
+        HandleInput(input.magnitude, input.normalized, radius, cam);
+        handle.anchoredPosition = input * radius * handleRange;
+    }
+
+    protected virtual void HandleInput(float magnitude, Vector2 normalised, Vector2 radius, Camera cam)
+    {
+        if (magnitude > deadZone)
+        {
+            if (magnitude > 1)
+                input = normalised;
+        }
+        else
+            input = Vector2.zero;
+    }
+
+    private void FormatInput()
+    {
+        if (axisOptions == AxisOptions.Horizontal)
+            input = new Vector2(input.x, 0f);
+        else if (axisOptions == AxisOptions.Vertical)
+            input = new Vector2(0f, input.y);
+    }
+
+    private float SnapFloat(float value, AxisOptions snapAxis)
+    {
+        if (value == 0)
+            return value;
+
+        if (axisOptions == AxisOptions.Both)
+        {
+            float angle = Vector2.Angle(input, Vector2.up);
+            if (snapAxis == AxisOptions.Horizontal)
+            {
+                if (angle < 22.5f || angle > 157.5f)
+                    return 0;
+                else
+                    return (value > 0) ? 1 : -1;
+            }
+            else if (snapAxis == AxisOptions.Vertical)
+            {
+                if (angle > 67.5f && angle < 112.5f)
+                    return 0;
+                else
+                    return (value > 0) ? 1 : -1;
+            }
+            return value;
+        }
+        else
+        {
+            if (value > 0)
+                return 1;
+            if (value < 0)
+                return -1;
+        }
+        return 0;
+    }
+
+    public virtual void OnPointerUp(PointerEventData eventData)
+    {
+        input = Vector2.zero;
+        handle.anchoredPosition = Vector2.zero;
+    }
+
+    protected Vector2 ScreenPointToAnchoredPosition(Vector2 screenPosition)
+    {
+        Vector2 localPoint = Vector2.zero;
+        if (RectTransformUtility.ScreenPointToLocalPointInRectangle(baseRect, screenPosition, cam, out localPoint))
+        {
+            Vector2 pivotOffset = baseRect.pivot * baseRect.sizeDelta;
+            return localPoint - (background.anchorMax * baseRect.sizeDelta) + pivotOffset;
+        }
+        return Vector2.zero;
+    }
 }
+
+public enum AxisOptions { Both, Horizontal, Vertical }
