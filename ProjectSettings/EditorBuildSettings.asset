@@ -9,31 +9,21 @@ EditorBuildSettings:
     path: Assets/Scenes/2D Scenes/MainMenu.unity
     guid: 4cad38c00034549219c682d6f72b4992
   - enabled: 1
-    path: Assets/Scenes/2D Scenes/AboutUs.unity
-    guid: 41b3ec678c0cc43a5b236412b46dbfb2
-  - enabled: 1
-<<<<<<< Updated upstream
-    path: Assets/Scenes/2D Scenes/SelectCharacter.unity
-=======
     path: Assets/Scenes/2D Scenes/Setting.unity
->>>>>>> Stashed changes
     guid: e89497dc5182943dd991f87e91538775
   - enabled: 1
-    path: Assets/Scenes/RiddleScene/RiddleScene.unity
-    guid: 074b772624a764399a76b5ac1e01e63e
-  - enabled: 1
-    path: Assets/Scenes/RiddleScene/CongratsScene.unity
-    guid: 6b635f53d7da943bcb0cd59cf1d81a99
-  - enabled: 1
-    path: Assets/Scenes/2D Scenes/RewardScene.unity
-    guid: de9ef89157c08487192c179a29e8f462
+    path: Assets/Scenes/2D Scenes/AboutUs.unity
+    guid: 41b3ec678c0cc43a5b236412b46dbfb2
   - enabled: 1
     path: Assets/Scenes/SchoolScene/Start.unity
     guid: a978d1e8146d6410b9c79db77944b871
   - enabled: 1
-    path: Assets/Scenes/scene2.unity
-    guid: 41f53486e9aaf491bb061c4ebe0300a1
+    path: Assets/Scenes/2D Scenes/RiddleScene.unity
+    guid: 074b772624a764399a76b5ac1e01e63e
   - enabled: 1
-    path: Assets/Scenes/Scene3D.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+    path: Assets/Scenes/2D Scenes/CongratScene.unity
+    guid: af169259861e09943ac62dcda02b2efb
+  - enabled: 1
+    path: Assets/Scenes/2D Scenes/RewardScene.unity
+    guid: de9ef89157c08487192c179a29e8f462
   m_configObjects: {}
