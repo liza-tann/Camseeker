@@ -1,43 +1,3 @@
-// using UnityEngine;
-// using TMPro;
-
-// public class NPC : MonoBehaviour
-// {
-//     public Transform player; // Reference to the player's transform
-//     public float interactionRange = 0.5f; // Range within which interaction is triggered
-//     public Canvas interactionUI; // Reference to the UI Canvas
-//     public TextMeshProUGUI dialogueText; // Reference to TMP text for the NPC dialogue
-
-//     void Start()
-//     {
-//         // Ensure the UI is hidden at the start
-//         interactionUI.gameObject.SetActive(false);
-//         Debug.Log(player.name);
-//     }
-
-//     void Update()
-//     {
-//         float distance = Vector2.Distance(player.position, transform.position);
-//         Debug.Log($"Distance to NPC: {distance}");
-//         Debug.Log(player.name);
-
-//         if (distance <= interactionRange)
-//         {
-//             Debug.Log("Within range: Showing UI");
-//             interactionUI.gameObject.SetActive(true);
-//             dialogueText.text = "Press the button to talk!";
-//         }
-//         else
-//         {
-//             Debug.Log("Out of range: Hiding UI");
-//             interactionUI.gameObject.SetActive(false);
-//         }
-//     }
-
-
-
-// }
-
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
@@ -76,7 +36,6 @@ public class NPC : MonoBehaviour
             interactionUI.gameObject.SetActive(true);
             dialogueText.text = "Press E to interact!";
             //Debug.Log("within range: showing UI");
-
         }
         else
         {

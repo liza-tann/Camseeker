@@ -6,26 +6,19 @@ public class SwitchCamera : MonoBehaviour
     public CinemachineVirtualCamera cam1;
     public CinemachineVirtualCamera cam2;
 
-    private bool isCam1Active = true;
+    private bool isCam1Active = true; // Track the current active camera
 
-    public void Update()
+    // Method to switch to Camera 1
+    public void SwitchToCam1()
     {
-        SwitchInput();
+        CameraManager.SwitchCamera(cam1);
+        isCam1Active = true;
     }
 
-    public void SwitchInput()
+    // Method to switch to Camera 2
+    public void SwitchToCam2()
     {
-        if (Input.GetKeyDown("space"))
-        {
-            if (isCam1Active)
-            {
-                CameraManager.SwitchCamera(cam2);
-            }
-            else
-            {
-                CameraManager.SwitchCamera(cam1);
-            }
-            isCam1Active = !isCam1Active; // Toggle active camera state
-        }
+        CameraManager.SwitchCamera(cam2);
+        isCam1Active = false;
     }
 }
