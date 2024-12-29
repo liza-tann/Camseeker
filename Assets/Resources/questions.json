@@ -26,7 +26,7 @@
       "CorrectAnswer": 0
     },
     {
-      "Question": "According to the pitcure, what  programming language is this?",
+      "Question": "According to the pitcures, what  programming language is this?",
       "Images": [
         "P_Image",
         "Plus_Image",
@@ -36,6 +36,124 @@
       ],
       "Answers": ["Python", "Java", "C", "C++"],
       "CorrectAnswer": 0
+    },
+    {
+      "Question": "Which field of study is NOT a major focus at CADT?",
+      "Answers": [
+        "Digital Innovation",
+        "Software Development",
+        "Marine Biology",
+        "Cybersecurity"
+      ],
+      "CorrectAnswer": 2
+    },
+    {
+      "Question": "Which of the following bachelor's degree programs is NOT offered at CADT?",
+      "Answers": [
+        " Computer Science",
+        "Telecom & Networking",
+        "E-commerce",
+        "Marketing"
+      ],
+      "CorrectAnswer": 3
+    },
+    {
+      "Question": "Which of the following is NOT a specialization within the Computer Science program at CADT?",
+      "Answers": ["Data Science", "E-commerce", "Software Engineering", "All"],
+      "CorrectAnswer": 1
+    },
+    {
+      "Question": "How many institutes are there at CADT?",
+      "Answers": ["1", " 2", "3", "4"],
+      "CorrectAnswer": 2
+    },
+    {
+      "Question": "Which of the following is NOT an institute at CADT?",
+      "Answers": ["IDT", "IDG", "IDRI", "IBA"],
+      "CorrectAnswer": 3
+    },
+    {
+      "Question": "I have cities, but no houses. I have forests, but no trees. I have rivers, but no water. What am I?",
+      "Answers": ["Map", "Dream", "Painting", "Book"],
+      "CorrectAnswer": 0
+    },
+    {
+      "Question": "The more of this there is, the less you see. What is it?",
+      "Answers": ["Light", "Darkness", "Air", "Water"],
+      "CorrectAnswer": 1
+    },
+    {
+      "Question": "Which answer is best describe the pictures above? ",
+      "Images": [
+        "Chat_Image",
+        "Plus_Image",
+        "GPT_Image",
+        "Equal_Image",
+        "QMark_Image"
+      ],
+      "Answers": ["ChatAI", "GPTBot", "ChatScript", " ChatGPT"],
+      "CorrectAnswer": 3
+    },
+    {
+      "Question": "What concept does this visually represent in the world of diagrams? ",
+      "Images": [
+        "Flow_Image",
+        "Plus_Image",
+        "Pie_Chart_Image",
+        "Equal_Image",
+        "QMark_Image"
+      ],
+      "Answers": [
+        "Water Cycle",
+        "Pie Distribution",
+        "FlowChart",
+        " Data Mapping"
+      ],
+      "CorrectAnswer": 2
+    },
+    {
+      "Question": "Who is mostly built with the two elements above? ",
+      "Images": [
+        "No_eat_Image",
+        "Plus_Image",
+        "No_Sleep_Image",
+        "Equal_Image",
+        "QMark_Image"
+      ],
+      "Answers": ["Actor", "Musician", "IT Student", " Athlete"],
+      "CorrectAnswer": 2
+    },
+    {
+      "Question": "Which policy is best described by this combination? ",
+      "Images": [
+        "Night_Image",
+        "Plus_Image",
+        "P_Image",
+        "Equal_Image",
+        "QMark_Image"
+      ],
+      "Answers": [
+        "Privacy Policy",
+        "Return Policy",
+        "Cancellation Policy",
+        " One Night Policy"
+      ],
+      "CorrectAnswer": 3
+    },
+    {
+      "Question": "I am a three-digit number. My tens digit is five more than my ones digit, and my hundreds digit is eight less than my tens digit. What number am I?",
+      "Answers": ["194", "153", "370", "205"],
+      "CorrectAnswer": 0
+    },
+    {
+      "Question": "I am a two-digit number. The difference between my digits is 3, and the sum of my digits is 11. What number am I?",
+      "Answers": ["38", "62", "74", "83"],
+      "CorrectAnswer": 2
+    },
+    {
+      "Question": "I am a two-digit number. The sum of my digits is 12, and if you reverse my digits, I become 36 less than the original number. What number am I?",
+      "Answers": ["39", "48", "57", "63"],
+      "CorrectAnswer": 1
     }
   ]
 }
