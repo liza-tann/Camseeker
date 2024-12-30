@@ -659,8 +659,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Back
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8539f543bfd914b4c93b224aa846885e, type: 2}
-  m_sharedMaterial: {fileID: 5855067048776438160, guid: 8539f543bfd914b4c93b224aa846885e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1712,7 +1712,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterModels:
   - {fileID: 1694388104871626409, guid: 678bf8bc91771fa498236de892b83d1d, type: 3}
-  - {fileID: 919132149155446097, guid: bba74c536955141af9fd43515cf20d30, type: 3}
+  - {fileID: 2350652681907635850, guid: 83628a2e699576147adabb30587f44d4, type: 3}
   - {fileID: 3452619616725148538, guid: e4aedb39e9f545d4ea4823858526bc32, type: 3}
   - {fileID: 1699975746001158636, guid: f0634d5575c7e2a41bd717d5db0f4cc7, type: 3}
   - {fileID: 614990818158199908, guid: 3ac315adbca70884b9d2b588f658709e, type: 3}
@@ -1953,7 +1953,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: scene2
+          m_StringArgument: Start
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1689372034

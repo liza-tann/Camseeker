@@ -60,8 +60,8 @@ public class CharacterSelection : MonoBehaviour
         // Save the selected character index and load Scene2
         PlayerPrefs.SetInt("SelectedCharacterIndex", selectedCharacterIndex);
         PlayerPrefs.Save();
-        Debug.Log($"Loading Scene2 with Character {selectedCharacterIndex}");
-        SceneManager.LoadScene("Scene2");
+        Debug.Log($"Loading Game with Character {selectedCharacterIndex}");
+        SceneManager.LoadScene("Start");
     }
 
     public void OnBackButtonClicked()
