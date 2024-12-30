@@ -40,6 +40,67 @@
 
 
 ////last one
+// using UnityEngine;
+// using TMPro; // For TextMeshPro
+
+// public class NPCInteractionTMP : MonoBehaviour
+// {
+//     public Transform player;             // Reference to the player object (bot)
+//     public Transform interactionUI;      // Reference to the UI interaction area
+//     public float interactionRange = 5f;  // Range for the interaction
+//     public GameObject dialogueBox;       // Dialogue UI element
+//     public TextMeshProUGUI dialogueText; // TextMeshPro component for dialogue
+//     public string dialogueMessage = "Hello! How can I help you?";
+
+//     void Start()
+//     {
+//         // Ensure the dialogue box is hidden at the start of the game
+//         dialogueBox.SetActive(false);
+//         // Debug.Log("Dialogue box hidden at start.");
+//     }
+
+//     void Update()
+//     {
+//         // Calculate the distance between the player and the interaction UI
+//         float distance = Vector3.Distance(player.position, interactionUI.position);
+
+//         // Debug log to monitor the distance
+//         //Debug.Log($"Distance to Interaction UI: {distance}");
+
+//         // Check if the player is within range
+//         if (distance <= interactionRange)
+//         {
+//             // Debug.Log("Player is within range of the Interaction UI.");
+//             ShowDialogue();
+//         }
+//         else
+//         {
+//             // Debug.Log("Player is out of range.");
+//             HideDialogue();
+//         }
+//     }
+
+//     void ShowDialogue()
+//     {
+//         if (!dialogueBox.activeSelf)
+//         {
+//             dialogueBox.SetActive(true);  // Show the dialogue box
+//             dialogueText.text = dialogueMessage; // Set the dialogue message
+//             //Debug.Log("Dialogue box shown.");
+//         }
+//     }
+
+//     void HideDialogue()
+//     {
+//         if (dialogueBox.activeSelf)
+//         {
+//             dialogueBox.SetActive(false); // Hide the dialogue box
+//             //Debug.Log("Dialogue box hidden.");
+//         }
+//     }
+// }
+
+using System.Collections;
 using UnityEngine;
 using TMPro; // For TextMeshPro
 
@@ -50,13 +111,16 @@ public class NPCInteractionTMP : MonoBehaviour
     public float interactionRange = 5f;  // Range for the interaction
     public GameObject dialogueBox;       // Dialogue UI element
     public TextMeshProUGUI dialogueText; // TextMeshPro component for dialogue
-    public string dialogueMessage = "Hello! How can I help you?";
+    public string[] dialogueLines;       // Array of dialogue lines
+    public float textSpeed = 0.05f;      // Speed of text typing
+
+    private int dialogueIndex;           // Current dialogue line index
+    private bool isTyping;               // Whether the text is currently being typed
 
     void Start()
     {
         // Ensure the dialogue box is hidden at the start of the game
         dialogueBox.SetActive(false);
-        // Debug.Log("Dialogue box hidden at start.");
     }
 
     void Update()
@@ -64,38 +128,68 @@ public class NPCInteractionTMP : MonoBehaviour
         // Calculate the distance between the player and the interaction UI
         float distance = Vector3.Distance(player.position, interactionUI.position);
 
-        // Debug log to monitor the distance
-        //Debug.Log($"Distance to Interaction UI: {distance}");
-
-        // Check if the player is within range
-        if (distance <= interactionRange)
+        // Check if the player is within range and presses the interaction key (e.g., left mouse button)
+        if (distance <= interactionRange && Input.GetMouseButtonDown(0))
         {
-            // Debug.Log("Player is within range of the Interaction UI.");
-            ShowDialogue();
+            if (!dialogueBox.activeSelf)
+            {
+                ShowDialogue();
+            }
+            else
+            {
+                if (isTyping)
+                {
+                    // Skip typing and show the complete line
+                    StopAllCoroutines();
+                    dialogueText.text = dialogueLines[dialogueIndex];
+                    isTyping = false;
+                }
+                else
+                {
+                    NextLine();
+                }
+            }
         }
-        else
+        else if (distance > interactionRange && dialogueBox.activeSelf)
         {
-            // Debug.Log("Player is out of range.");
             HideDialogue();
         }
     }
 
     void ShowDialogue()
     {
-        if (!dialogueBox.activeSelf)
+        dialogueBox.SetActive(true); // Show the dialogue box
+        dialogueIndex = 0;           // Reset the dialogue index
+        StartCoroutine(TypeLine()); // Start typing the first line
+    }
+
+    IEnumerator TypeLine()
+    {
+        isTyping = true;
+        dialogueText.text = "";
+        foreach (char c in dialogueLines[dialogueIndex].ToCharArray())
         {
-            dialogueBox.SetActive(true);  // Show the dialogue box
-            dialogueText.text = dialogueMessage; // Set the dialogue message
-            //Debug.Log("Dialogue box shown.");
+            dialogueText.text += c;
+            yield return new WaitForSeconds(textSpeed);
+        }
+        isTyping = false;
+    }
+
+    void NextLine()
+    {
+        if (dialogueIndex < dialogueLines.Length - 1)
+        {
+            dialogueIndex++;
+            StartCoroutine(TypeLine());
+        }
+        else
+        {
+            HideDialogue(); // End of dialogue
         }
     }
 
     void HideDialogue()
     {
-        if (dialogueBox.activeSelf)
-        {
-            dialogueBox.SetActive(false); // Hide the dialogue box
-            //Debug.Log("Dialogue box hidden.");
-        }
+        dialogueBox.SetActive(false); // Hide the dialogue box
     }
 }

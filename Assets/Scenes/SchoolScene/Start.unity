@@ -4430,7 +4430,11 @@ MonoBehaviour:
   interactionRange: 5
   dialogueBox: {fileID: 546176929}
   dialogueText: {fileID: 1033014058}
-  dialogueMessage: Hello! How can I help you?
+  dialogueLines:
+  - hello, My name is Danita
+  - I teach in CS department, i also a TA of some other teacher
+  - If you want to do something fun, lets do a riddle quiz with our classroom
+  textSpeed: 0.05
 --- !u!135 &513844337
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -8202,7 +8206,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 78.560394, y: 35.39634, z: 119.72543, w: 14.118974}
+  m_margin: {x: 78.60097, y: 35.335815, z: 119.671234, w: 14.246735}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -18717,7 +18721,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 40
+  field of view: 30
   orthographic: 0
   orthographic size: 10
   m_Depth: 0
@@ -18744,7 +18748,7 @@ Transform:
   m_GameObject: {fileID: 2141961344}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 44.3, y: 1.45, z: 20.3}
+  m_LocalPosition: {x: 43.8, y: 1.4, z: 18.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
