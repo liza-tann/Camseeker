@@ -34,9 +34,18 @@ public class PlayerMovement : MonoBehaviour
         float rotationAmount = horizontalInput * rotationSpeed * Time.deltaTime;
         transform.Rotate(0, rotationAmount, 0);
 
-        // Animator logic
-        bool isMoving = verticalInput != 0 || horizontalInput != 0;
-        animator.SetBool("isMoving", isMoving);
+        // Determine if the player is moving
+        bool isMoving = Mathf.Abs(verticalInput) > 0.1f || Mathf.Abs(horizontalInput) > 0.1f;
+
+        // Update the Animator parameter
+        if (animator != null)
+        {
+            animator.SetBool("isMoving", isMoving);
+        }
+        else
+        {
+            Debug.LogError("Animator component is missing or not assigned.");
+        }
 
         // Debug
         Debug.Log("isMoving: " + animator.GetBool("isMoving"));
