@@ -103,6 +103,7 @@
 using System.Collections;
 using UnityEngine;
 using TMPro; // For TextMeshPro
+using UnityEngine.SceneManagement;
 
 public class NPCInteractionTMP : MonoBehaviour
 {
@@ -184,7 +185,14 @@ public class NPCInteractionTMP : MonoBehaviour
         }
         else
         {
-            HideDialogue(); // End of dialogue
+            if (dialogueIndex == dialogueLines.Length - 1)
+            {
+                SwitchScene();
+            }
+            else
+            {
+                HideDialogue(); // End of dialogue
+            }
         }
     }
 
@@ -192,4 +200,10 @@ public class NPCInteractionTMP : MonoBehaviour
     {
         dialogueBox.SetActive(false); // Hide the dialogue box
     }
+
+    void SwitchScene()
+    {
+        SceneManager.LoadScene("RiddleScene");
+    }
+
 }

@@ -29,10 +29,10 @@ public class QuizManager : MonoBehaviour
         }
 
         // Validate options array
-       // if (options == null || options.Length == 0)
+        // if (options == null || options.Length == 0)
         //{
-           // Debug.LogError("Options array is not set up correctly!");
-            //return;
+        // Debug.LogError("Options array is not set up correctly!");
+        //return;
         //}
 
         UpdateScoreUI();
@@ -207,7 +207,7 @@ public class QuizManager : MonoBehaviour
         yield return new WaitForSeconds(waitTime);
 
         // After the wait, load the CongratsScene
-        UnityEngine.SceneManagement.SceneManager.LoadScene("CongratsScene");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("CongratScene");
     }
 
     private void LoadQuestionsFromJSON()
@@ -231,7 +231,7 @@ public class QuizManager : MonoBehaviour
         PlayerPrefs.SetInt("Score", score);
         PlayerPrefs.Save();
 
-      
+
     }
 
     void ResetButtonColors()
