@@ -8,18 +8,6 @@ public class AnswerScript : MonoBehaviour
     public QuizManager quizManager; // Reference to the QuizManager
 
     private AudioSource audioSource;
-
-    private void Start()
-    {
-        // Get the AudioSource component from the QuizManager
-        audioSource = quizManager.GetComponent<AudioSource>();
-
-        if (audioSource == null)
-        {
-            Debug.LogError("AudioSource is not attached to the QuizManager!");
-        }
-    }
-
     public void Answer()
     {
         if (isCorrect)

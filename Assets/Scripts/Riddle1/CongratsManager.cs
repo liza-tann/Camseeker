@@ -59,20 +59,4 @@ public class CongratsManager : MonoBehaviour
             Debug.LogWarning("No congratulatory sound assigned!");
         }
     }
-
-
-    // Method to restart the quiz
-    public void RestartQuiz()
-    {
-        // Load the quiz scene again
-        UnityEngine.SceneManagement.SceneManager.LoadScene("RiddleScene");
-    }
-
-    // Method to quit the game
-    public void QuitGame()
-    {
-        // Exit the game
-        Application.Quit();
-        Debug.Log("Quit Game");
-    }
 }
