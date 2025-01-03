@@ -50,4 +50,9 @@ public class PlayerMovement : MonoBehaviour
         // Debug
         Debug.Log("isMoving: " + animator.GetBool("isMoving"));
     }
+
+    public void SetAnimator(Animator newAnimator)
+    {
+        animator = newAnimator;
+    }
 }
