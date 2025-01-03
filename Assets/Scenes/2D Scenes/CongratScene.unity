@@ -305,7 +305,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7106918, g: 0.24807158, b: 0.24807158, a: 1}
+  m_Color: {r: 0.8396226, g: 0.29703632, b: 0.29703632, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5693,14 +5693,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.81761, g: 0.24939665, b: 0.24939665, a: 1}
+  m_Color: {r: 0.9764706, g: 0.627451, b: 0.16862746, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 26db164f6384e4afd89b39fe3efcea2b, type: 3}
+  m_Texture: {fileID: 2800000, guid: 1368ce1df07ea4089be18aba85a5535d, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -5886,7 +5886,7 @@ GameObject:
   - component: {fileID: 2023736458}
   - component: {fileID: 2023736457}
   m_Layer: 5
-  m_Name: Play again
+  m_Name: RewardButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
