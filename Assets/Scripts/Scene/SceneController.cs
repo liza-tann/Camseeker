@@ -6,8 +6,6 @@ using UnityEngine.SceneManagement;
 public class SceneController : MonoBehaviour
 {
     public Animator animator; // Animator for scene transition
-    public Vector3 playerPosition; // Player's position to store between scenes
-    public int score; // Score to store between scenes
 
     private string targetSceneName;
 
@@ -48,21 +46,5 @@ public class SceneController : MonoBehaviour
 
         // Optionally unload the previous scene if it's no longer needed
         SceneManager.UnloadSceneAsync(currentScene);
-    }
-
-    public void SetPlayerState(Vector3 position, int newScore)
-    {
-        playerPosition = position;
-        score = newScore;
-    }
-
-    public Vector3 GetPlayerPosition()
-    {
-        return playerPosition;
-    }
-
-    public int GetScore()
-    {
-        return score;
     }
 }
