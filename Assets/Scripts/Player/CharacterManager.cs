@@ -88,4 +88,5 @@ public class CharacterManager : MonoBehaviour
             playerMovement.SetAnimator(activeCharacter.GetComponent<Animator>());
         }
     }
+
 }
