@@ -730,7 +730,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2079631976815237974}
-  - component: {fileID: 5349285247389286700}
+  - component: {fileID: 6624448232273954532}
   m_Layer: 0
   m_Name: Akio Highschool Uniform
   m_TagString: Untagged
@@ -755,7 +755,7 @@ Transform:
   - {fileID: 2487052416822769287}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &5349285247389286700
+--- !u!95 &6624448232273954532
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -765,10 +765,10 @@ Animator:
   m_GameObject: {fileID: 1699975746001158636}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 75916f735b2fe014e9dfa3b043e648d1, type: 3}
-  m_Controller: {fileID: 9100000, guid: 9cb0af71019cf4248930ef2a61205de2, type: 2}
+  m_Controller: {fileID: 9100000, guid: 1a5d957850b564e508dce8e65baeb651, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 

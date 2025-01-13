@@ -5418,8 +5418,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 756565670}
-  playerPosition: {x: 0, y: 0, z: 0}
-  score: 0
 --- !u!4 &756565669
 Transform:
   m_ObjectHideFlags: 0

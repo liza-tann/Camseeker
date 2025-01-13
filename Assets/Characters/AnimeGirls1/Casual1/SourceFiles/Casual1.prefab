@@ -332,7 +332,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1694388104871467657}
-  - component: {fileID: 1694388104864216425}
+  - component: {fileID: 5739261858408274614}
+  - component: {fileID: -8942596790485995794}
   m_Layer: 0
   m_Name: Casual1
   m_TagString: Untagged
@@ -359,7 +360,7 @@ Transform:
   - {fileID: 1694388105159416148}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &1694388104864216425
+--- !u!95 &5739261858408274614
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -367,9 +368,9 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1694388104871626409}
-  m_Enabled: 0
-  m_Avatar: {fileID: 9000000, guid: 7e0043553097dc34e867f52b292bb164, type: 3}
-  m_Controller: {fileID: 9100000, guid: 9cb0af71019cf4248930ef2a61205de2, type: 2}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 5729628d82da3e549a2281ea6c207f3c, type: 3}
+  m_Controller: {fileID: 9100000, guid: 1a5d957850b564e508dce8e65baeb651, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -380,6 +381,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-8942596790485995794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1694388104871626409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fb1d692c7bc2d7499b9ec6579e576c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  rotationSpeed: 180
+  joystick: {fileID: 0}
 --- !u!1 &1694388104871626411
 GameObject:
   m_ObjectHideFlags: 0

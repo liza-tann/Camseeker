@@ -805,8 +805,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 501191855}
-  playerPosition: {x: 0, y: 0, z: 0}
-  score: 0
 --- !u!95 &501191855
 Animator:
   serializedVersion: 5
@@ -1853,7 +1851,7 @@ MonoBehaviour:
   - {fileID: 2350652681907635850, guid: 83628a2e699576147adabb30587f44d4, type: 3}
   - {fileID: 3452619616725148538, guid: e4aedb39e9f545d4ea4823858526bc32, type: 3}
   - {fileID: 1699975746001158636, guid: f0634d5575c7e2a41bd717d5db0f4cc7, type: 3}
-  - {fileID: 614990818158199908, guid: 3ac315adbca70884b9d2b588f658709e, type: 3}
+  - {fileID: 919132149155446097, guid: 75916f735b2fe014e9dfa3b043e648d1, type: 3}
   - {fileID: 100338, guid: 40046bae76ac54bffb59f14f47d9ba1b, type: 3}
 --- !u!1 &1544080957
 GameObject:

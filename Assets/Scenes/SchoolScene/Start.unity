@@ -525,7 +525,7 @@ Transform:
   m_GameObject: {fileID: 49313362}
   serializedVersion: 2
   m_LocalRotation: {x: 1.7761371e-15, y: -0.00000008940696, z: 1.1176117e-16, w: 1}
-  m_LocalPosition: {x: 44.3, y: 1.45, z: 20.3}
+  m_LocalPosition: {x: 43.899998, y: 1.2, z: 20.2}
   m_LocalScale: {x: 0.33333343, y: 0.33333334, z: 0.33333343}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3039,6 +3039,7 @@ GameObject:
   - component: {fileID: 304491105}
   - component: {fileID: 304491107}
   - component: {fileID: 304491108}
+  - component: {fileID: 304491109}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -3135,6 +3136,28 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_ApplyBeforeBody: 0
+--- !u!114 &304491109
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 304491104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa7155796051b734daa718462081dc5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BindingMode: 1
+  m_FollowOffset: {x: -0.4, y: 1.45, z: 0}
+  m_XDamping: 1
+  m_YDamping: 1
+  m_ZDamping: 1
+  m_AngularDampingMode: 0
+  m_PitchDamping: 0
+  m_YawDamping: 0
+  m_RollDamping: 0
+  m_AngularDamping: 0
 --- !u!1 &317387463
 GameObject:
   m_ObjectHideFlags: 0
@@ -11594,7 +11617,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2060429953}
         m_TargetAssemblyTypeName: SwitchCamera, Assembly-CSharp
-        m_MethodName: SwitchToCam1
+        m_MethodName: SwitchToCamera
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15640,7 +15663,7 @@ Transform:
   m_GameObject: {fileID: 1289595469}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 44.3, y: 0, z: 20.2}
+  m_LocalPosition: {x: 44.3, y: -0.25, z: 20.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -15657,7 +15680,7 @@ Animator:
   m_GameObject: {fileID: 1289595469}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 7e0043553097dc34e867f52b292bb164, type: 3}
-  m_Controller: {fileID: 9100000, guid: 9cb0af71019cf4248930ef2a61205de2, type: 2}
+  m_Controller: {fileID: 9100000, guid: 1a5d957850b564e508dce8e65baeb651, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -15693,7 +15716,7 @@ CharacterController:
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.8, z: 0}
+  m_Center: {x: -0.3, y: 0.8, z: -0.2}
 --- !u!23 &1289595475
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -18920,7 +18943,7 @@ Transform:
   m_GameObject: {fileID: 1523666943}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 43.8, y: 1.4, z: 18.2}
+  m_LocalPosition: {x: 43.8, y: 1.15, z: 18.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -27518,7 +27541,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 40
+  field of view: 30
   orthographic: 0
   orthographic size: 10
   m_Depth: 0
@@ -27545,7 +27568,7 @@ Transform:
   m_GameObject: {fileID: 2141961344}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 44.3, y: 1.45, z: 20.3}
+  m_LocalPosition: {x: 43.8, y: 1.15, z: 18.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -81532,7 +81555,7 @@ Transform:
   m_GameObject: {fileID: 919132147512667645}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 48.039993, y: 0, z: 38.45}
+  m_LocalPosition: {x: 48.039993, y: 0.25, z: 38.45}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

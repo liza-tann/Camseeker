@@ -75,13 +75,6 @@ public class CharacterManager : MonoBehaviour
         activeCharacter.transform.position = defaultPosition;
         activeCharacter.transform.SetParent(playerController.transform);
 
-        // Optionally, you can add or remove any other necessary components (e.g., player scripts)
-        // Add the CharacterMover script to enable movement if it's not already added
-        if (activeCharacter.GetComponent<CharacterMover>() == null)
-        {
-            activeCharacter.AddComponent<CharacterMover>();
-        }
-
         PlayerMovement playerMovement = playerController.GetComponent<PlayerMovement>();
         if (playerMovement != null)
         {

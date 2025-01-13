@@ -8,17 +8,36 @@ public class SwitchCamera : MonoBehaviour
 
     private bool isCam1Active = true; // Track the current active camera
 
-    // Method to switch to Camera 1
+    void Start()
+    {
+        // Initialize both cameras
+        cam1.Priority = 10; // Make cam1 active
+        cam2.Priority = 0;  // Make cam2 inactive
+    }
+
+    public void SwitchToCamera()
+    {
+        if (isCam1Active)
+        {
+            SwitchToCam2();
+        }
+        else
+        {
+            SwitchToCam1();
+        }
+    }
+
     public void SwitchToCam1()
     {
-        CameraManager.SwitchCamera(cam1);
+        cam1.Priority = 10; // Make cam1 active
+        cam2.Priority = 0;  // Make cam2 inactive
         isCam1Active = true;
     }
 
-    // Method to switch to Camera 2
     public void SwitchToCam2()
     {
-        CameraManager.SwitchCamera(cam2);
+        cam1.Priority = 0;  // Make cam1 inactive
+        cam2.Priority = 10; // Make cam2 active
         isCam1Active = false;
     }
 }
