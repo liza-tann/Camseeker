@@ -26,7 +26,7 @@ It also includes some main features like character customization, NPC (Non-Playe
 
 To get started with the project, follow these steps:
 
-1. **Clone the repository**:
+1. **Clone the repository**:<br>
    `git clone https://github.com/liza-tann/Camseeker.git`
 2. **Open the project in Unity**:
    - Launch Unity Hub and select `Open` button.
@@ -48,16 +48,16 @@ Make sure you have the following installed on your system:
 
 1. **Start the Game**: After building the project, click the `Run` button in the top middle of the Unity Editor.
 2. **Objective**: Your goal is to explore the school and solve the riddle.
-3.
+3. **Rule**: Successfully completing the game will earn the player rewards, including a tote bag, a bottle of water, and a t-shirt, as a recognition of their achievements.
 
 ## [Features](#features)
 
-- **2.5D Environment**:
-- **Character Customization**:
-- **Simulation**:
-- **NPC**:
-- **Riddle**:
-- **Minimap**:
+- **2.5D Environment**: This feature integrates 2D and 3D elements seamlessly. Players navigate through a 2D screen system, moving from one screen to another. The 3D environment enhances depth and immersion, making exploration more dynamic and visually engaging.
+- **Character Customization**: Players can choose from a selection of characters to start their journey, each sourced from free Unity assets. This allows for a personalized gaming experience as the chosen character explores the game world.
+- **Simulation**: Experience a realistic 3D recreation of the ground floor of the IDT building, designed with intricate details to mimic the real-world structure.
+- **NPC**: Engage in meaningful conversations with NPCs, including students and other characters. Dialogs will display clear instructions and provide context about who the NPCs are, enhancing the narrative and player interaction.
+- **Riddle**: Test problem-solving abilities with riddles integrated into the narrative. These riddles are thoughtfully crafted and relate to topics associated with IDT, adding an educational layer to the gameplay.
+- **Minimap**: Navigate the environment effortlessly using a functional minimap that displays key locations, including classrooms areas within the game.
 
 ## [Project Structure](#project-structure)
 
@@ -69,9 +69,9 @@ Here's a brief overview of the structure of the project:
 │   ├── Animations/      # All game animations
 │   ├── Art/             # All 3D models, textures, sprites
 │   ├── Audio/           # Sound effects, music, voice lines
+│   ├── Materials/       # Materials and shaders
 │   ├── Scenes/          # Unity scene files
-│   ├── Scripts/         # C# scripts for game logic
-│   └── Materials/       # Materials and shaders
+│   └── Scripts/         # C# scripts for game logic
 ├── ProjectSettings/     # Unity project settings
 ├── Packages/            # Unity package manager dependencies
 └── README.md            # This file
