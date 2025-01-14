@@ -2,7 +2,7 @@
 
 ## Overview
 
-**CamSeeker** is an exciting 2.5D educational game where a player can explore the school and solve riddles. The game features engaging mechanics, stunning visuals, and a compelling story designed to keep players hooked.
+**CamSeeker** is an exciting 2.5D 3D educational game where a player can explore the school and solve riddles. The game features engaging mechanics, stunning visuals, and a compelling story designed to keep players hooked.
 
 It also includes some main features like character customization, NPC (Non-Player Character), and different camera POV to enhance the player interaction.
 
@@ -52,7 +52,7 @@ Make sure you have the following installed on your system:
 
 ## [Features](#features)
 
-- **2.5D Environment**: This feature integrates 2D and 3D elements seamlessly. Players navigate through a 2D screen system, moving from one screen to another. The 3D environment enhances depth and immersion, making exploration more dynamic and visually engaging.
+- **2D/3D Environment**: This feature integrates 2D and 3D elements seamlessly. Players navigate through a 2D screen system, moving from one screen to another. The 3D environment enhances depth and immersion, making exploration more dynamic and visually engaging.
 - **Character Customization**: Players can choose from a selection of characters to start their journey, each sourced from free Unity assets. This allows for a personalized gaming experience as the chosen character explores the game world.
 - **Simulation**: Experience a realistic 3D recreation of the ground floor of the IDT building, designed with intricate details to mimic the real-world structure.
 - **NPC**: Engage in meaningful conversations with NPCs, including students and other characters. Dialogs will display clear instructions and provide context about who the NPCs are, enhancing the narrative and player interaction.
