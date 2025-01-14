@@ -2,7 +2,7 @@
 
 ## Overview
 
-**CamSeeker** is an exciting 2.5D 3D educational game where a player can explore the school and solve riddles. The game features engaging mechanics, stunning visuals, and a compelling story designed to keep players hooked.
+**CamSeeker** is an exciting 3D educational game where a player can explore the school and solve riddles. The game features engaging mechanics, stunning visuals, and a compelling story designed to keep players hooked.
 
 It also includes some main features like character customization, NPC (Non-Player Character), and different camera POV to enhance the player interaction.
 
